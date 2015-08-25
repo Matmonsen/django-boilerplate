@@ -15,7 +15,7 @@ def generate_secret():
 
 
 @task
-def setup(project_name='', app_name='',  superuser=False, git=True):
+def setup(project_name='', app_name='',  superuser=False, git=False):
     print('Welcome to setup')
     if app_name and project_name:
         print('... generating secret key')
@@ -68,7 +68,7 @@ def push(all_files=False, message=''):
         print('... Adding updated files')
         run('git add -u .')
     print('... committing')
-    run('git commit -m "%s"'.format(message))
+    run('git commit -m "{0}"'.format(message))
     print('... pushing')
     run('git push')
     print('... done pushing')
@@ -86,14 +86,15 @@ def deploy():
 @task
 def test(app=''):
     print('Testing...')
-    run('./manage.py test "%s"'.format(app))
+    run('./manage.py test "{0}"'.format(app))
     print('... done testing')
 
 
 @task
 def run_server(port=8000):
     print('Running server ...')
-    run('./manage.py runserver:{0}'.format(port))
+    print('... Running on 127.0.0.1:{0}'.format(port))
+    run('./manage.py runserver localhost:{0}'.format(port))
 
 
 @task

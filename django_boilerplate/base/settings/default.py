@@ -38,7 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rosetta', # for easy i18n maintaining
-    'compressor', # compressing js ans css
     'boilerplate',
 )
 
