@@ -77,11 +77,6 @@ WSGI_APPLICATION = 'base.wsgi.application'
 
 SITE_ID = 1
 
-ADMINS = (
-    ('admin_name', 'admin_mail'),
-)
-
-MANAGERS = ADMINS
 
 '''
 --------------------------------------------------------------------------------------------------------
@@ -97,7 +92,7 @@ LANGUAGES = (
 )
 
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'names/locale/'),
+    os.path.join(APP_DIR, 'locale'),
 )
 
 TIME_ZONE = 'UTC'
@@ -116,7 +111,7 @@ USE_TZ = True
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
+
 )
 
 
