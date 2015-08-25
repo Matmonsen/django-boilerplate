@@ -15,7 +15,7 @@ def generate_secret():
 
 
 @task
-def setup(project_name='', app_name='',  superuser=False, git=False):
+def setup(project_name='', app_name='', superuser=False, git=False):
     print('Welcome to setup')
     if app_name and project_name:
         print('... generating secret key')
@@ -28,6 +28,8 @@ def setup(project_name='', app_name='',  superuser=False, git=False):
         print('... renaming project')
         os.rename("boilerplate", app_name)
         os.rename(os.path.dirname(__file__), os.path.dirname(os.path.dirname(__file__)) + '/' + project_name)
+        os.rename(os.path.dirname(os.path.dirname(__file__)),
+                  os.path.dirname(os.path.dirname(os.path.dirname(__file__))) + '/' + project_name)
 
         if git:
             print('... removing old .git folder')
