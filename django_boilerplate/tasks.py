@@ -2,14 +2,14 @@ import os
 import random
 import fileinput
 from invoke import run, task
-from .base.settings import SECRET_FILE
 
 
 @task
-def generate_secret_key():
+def generate_secret():
+    secret_file = os.path.join(os.path.dirname(__file__) + '/base/settings/', 'secret.txt')
     key = ''.join(
         [random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)])
-    secret = open(SECRET_FILE, 'w')
+    secret = open(secret_file, 'w')
     secret.write(key)
     secret.close()
 
@@ -18,6 +18,9 @@ def generate_secret_key():
 def setup(project_name='', app_name='',  superuser=False, git=True):
     print('Welcome to setup')
     if app_name and project_name:
+        print('... generating secret key')
+        generate_secret()
+
         print('... renaming project')
         os.rename("boilerplate", app_name)
         os.rename("django_boilerplate", project_name)
@@ -25,9 +28,6 @@ def setup(project_name='', app_name='',  superuser=False, git=True):
         print('... adding project to installed apps')
         for line in fileinput.input(os.path.dirname(__file__) + '/base/settings/default.py', inplace=True):
             print(line.replace('boilerplate', app_name), end='')
-
-        print('... generating secret key')
-        generate_secret_key()
 
         if git:
             print('... removing old .git folder')
@@ -41,7 +41,7 @@ def setup(project_name='', app_name='',  superuser=False, git=True):
             run('./manage.py createsuperuser')
         print('... done with setup. Enoy!')
     else:
-        print('name cannot be empty')
+        print('project and app name cannot be empty')
 
 
 @task
@@ -91,7 +91,7 @@ def test(app=''):
 
 
 @task
-def run(port=8000):
+def run_server(port=8000):
     print('Running server ...')
     run('./manage.py runserver:{0}'.format(port))
 

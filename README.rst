@@ -45,12 +45,13 @@ Using the boilerplate
     # Initialize setup
     # -s is optional. Is superuser
     # -g for not initialize new git repo
-    # invoke setup -n "Project name"
+    $ invoke setup -n "Project name"
 
     # Run server
     # port defaults to 8000 -p for override
     $ invoke run
 
+    # Ready to tango with Django
     # Open a web browser and goto http://127.0.0.1:8000/
 
 
