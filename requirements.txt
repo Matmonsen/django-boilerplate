@@ -1,0 +1,7 @@
+Django==1.8.4
+django-rosetta==0.7.6
+invoke==0.10.1
+microsofttranslator==0.5
+polib==1.0.7
+requests==2.7.0
+six==1.9.0
