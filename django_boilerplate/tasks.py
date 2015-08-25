@@ -68,7 +68,7 @@ def push(all_files=False, message=''):
         print('... Adding updated files')
         run('git add -u .')
     print('... committing')
-    run('git commit -m "%s"') % message
+    run('git commit -m "%s"'.format(message))
     print('... pushing')
     run('git push')
     print('... done pushing')
@@ -86,7 +86,7 @@ def deploy():
 @task
 def test(app=''):
     print('Testing...')
-    run('./manage.py test "%s"') % app
+    run('./manage.py test "%s"'.format(app))
     print('... done testing')
 
 
