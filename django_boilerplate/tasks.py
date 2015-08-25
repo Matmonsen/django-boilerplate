@@ -156,6 +156,28 @@ def freeze(name='requirements'):
 
 
 @task
+def update():
+    """
+
+        Updates the requirements file
+
+    """
+    print('Updating...')
+    run('pip install --upgrade -r requirements.txt')
+    print('... done upgrading')
+
+
+@task
+def install():
+    """
+        Install all from requirements.txt
+    """
+    print('Installing ...')
+    run('pip install -r requirements.txt')
+    print('... done installing')
+    
+
+@task
 def docs():
     """
         Creates documentation for the project
