@@ -173,9 +173,22 @@ def install():
         Install all from requirements.txt
     """
     print('Installing ...')
+    run('pip install pip --upgrade')
     run('pip install -r requirements.txt')
     print('... done installing')
-    
+
+
+@task
+def uninstall():
+    """
+
+        Uninstall every pip installed package
+
+    """
+    print('Uninstalling')
+    run('pip freeze | xargs pip uninstall -y')
+    print('... done uninstalling')
+
 
 @task
 def docs():
