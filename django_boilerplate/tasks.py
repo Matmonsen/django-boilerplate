@@ -33,8 +33,7 @@ def setup(project_name='', app_name='',  superuser=False, git=False):
             print('... removing old .git folder')
             run('rm -rf ../.git')
             print('... initilizing git')
-            run('cd ..')
-            run('git init')
+            run('git init ../')
 
         if superuser:
             build()
