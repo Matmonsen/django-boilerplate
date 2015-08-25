@@ -31,7 +31,7 @@ def setup(project_name='', app_name='',  superuser=False, git=False):
 
         if git:
             print('... removing old .git folder')
-            run('rm- rf ../.git')
+            run('rm -rf ../.git')
             print('... initilizing git')
             run('git init')
 
