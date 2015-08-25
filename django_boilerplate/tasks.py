@@ -66,7 +66,7 @@ def push(all_files=False, message=''):
         run('git add .')
     else:
         print('... Adding updated files')
-        run('git add -u .')
+        run('git add -u')
     print('... committing')
     run('git commit -m "{0}"'.format(message))
     print('... pushing')

@@ -43,8 +43,8 @@ Using the boilerplate
     $ pip install -r requirements.txt
 
     # Initialize setup
-    # -s is optional. Is superuser
-    # -g for not initialize new git repo
+    # -s is optional. It creates a superuser.
+    # -g for initialize new git repo
     $ invoke setup -n "Project name"
 
     # Run server
