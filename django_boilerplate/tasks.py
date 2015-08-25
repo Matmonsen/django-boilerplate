@@ -174,7 +174,7 @@ def install():
     """
     print('Installing ...')
     run('pip install pip --upgrade')
-    run('pip install -r requirements.txt')
+    run('pip install -r ../requirements.txt')
     print('... done installing')
 
 
@@ -195,9 +195,9 @@ def docs():
     """
         Creates documentation for the project
     """
-    if os.path.isdir(os.path.dirname(os.path.dirname(__file__)) + '/docs'):
+    if os.path.isdir(os.path.dirname(__file__) + '/docs'):
         print('Creating docs...')
-        run('make html')
+        run('make html ./docs')
         print('.. done with docs')
     else:
         print('Creating docs...')

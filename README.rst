@@ -2,7 +2,7 @@
 Django Boilerplate
 ##################
 
-A boilerplate for Django
+A boilerplate for `Django`_
 
 
 Installation
@@ -40,7 +40,9 @@ Using the boilerplate
     # Navigate to cloned project
 
     # Install requirements
-    $ pip install -r requirements.txt
+    $ `pip`_ install -r `requirements.txt`_
+
+    $ cd django_boilerplate
 
     # Initialize setup
     # -s is optional. It creates a superuser.
@@ -62,8 +64,9 @@ Licence
 Please see `LICENSE`_
 
 .. _LICENSE: https://github.com/Matmonsen/django-boilerplate/blob/master/LICENSE.rst
-.. _requirements: https://github.com/Matmonsen/django-boilerplate/blob/master/requirements.txt
+.. _requirements.txt: https://github.com/Matmonsen/django-boilerplate/blob/master/requirements.txt
 .. _pip: http://www.pip-installer.org/en/latest/index.html
+.. _Django: https://www.djangoproject.com/
 
 
 
