@@ -151,7 +151,7 @@ def freeze(name='requirements'):
             name (str): Name of the requirement file
     """
     print('Freezing requirements...')
-    run('pip freeze > {0}.txt'.format(name))
+    run('pip freeze > ../{0}.txt'.format(name))
     print('... done freezing')
 
 
