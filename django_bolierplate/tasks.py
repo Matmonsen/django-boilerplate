@@ -2,7 +2,7 @@ import os
 import random
 import fileinput
 from invoke import run, task
-from base.settings import SECRET_FILE
+from .base.settings import SECRET_FILE
 
 
 @task
@@ -15,7 +15,7 @@ def generate_secret_key():
 
 
 @task
-def setup(project_name='', app_name='',  superuser=False):
+def setup(project_name='', app_name='',  superuser=False, git=True):
     print('Welcome to setup')
     if app_name and project_name:
         print('... renaming project')
@@ -28,6 +28,12 @@ def setup(project_name='', app_name='',  superuser=False):
 
         print('... generating secret key')
         generate_secret_key()
+
+        if git:
+            print('... removing old .git folder')
+            run('rm- rf ../.git')
+            print('... initilizing git')
+            run('git init')
 
         if superuser:
             build()
@@ -82,6 +88,12 @@ def test(app=''):
     print('Testing...')
     run('./manage.py test "%s"') % app
     print('... done testing')
+
+
+@task
+def run(port=8000):
+    print('Running server ...')
+    run('./manage.py runserver:{0}'.format(port))
 
 
 @task

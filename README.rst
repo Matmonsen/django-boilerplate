@@ -1,31 +1,20 @@
-############
-News Scraper
-############
+##################
+Django Boilerplate
+##################
 
-A web scraping module for Norwegian news sites
+A boilerplate for Django
 
 
 Installation
 ------------
 
 
-Using pip
+Using git
 
 
 .. code-block:: bash
 
-    # Make sure we have an up-to-date version of pip and setuptools:
-    $ pip install --upgrade pip setuptools
-
-    $ pip install git+git://github.com/matmonsen/news-scraper
-
-
-Pip via git
-
-.. code-block:: bash
-
-    $ pip install git+ssh://git@github.com/matmonsen/news-scraper.git
-
+    $ git clone https://github.com/Matmonsen/django-boilerplate
 
 
 
@@ -33,49 +22,37 @@ Pip via git
 Usage
 -----
 
-------------------
-Scrape a newspaper
-------------------
 
-    Scrape headlines from `aftenposten`_ frontpage
+Using the boilerplate
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        $ news_scraper = Scraper('Aftenposten')
-        # number of articles from `aftenposten`_
-        $ news_scraper.scrape(2)
+    # make a virtualenviroment
+    $ mkdir venv
+    $ cd venv
+    $ which python3
+    # returns path for python3
+    $ virtualenv -p (insert python3 path) .
 
-        $ print(news_scraper.articles[0])
-            NewsPaper:
-                Name: Aftenposten
+    # Activates a virtualenv
+    $ source bin/activate
 
-                Url: http://www.aftenposten.no
+    # Navigate to cloned project
 
-                Tag Class Name: df-article-content
+    # Install requirements
+    $ pip install -r requirements.txt
 
-                Subscription Url:
+    # Initialize setup
+    # -s is optional. Is superuser
+    # -g for not initialize new git repo
+    # invoke setup -n "Project name"
 
-                Title Tag: h3
+    # Run server
+    # port defaults to 8000 -p for override
+    $ invoke run
 
-            Article:
-                Title: Krever opprydning i Oslos kamerajungel
+    # Open a web browser and goto http://127.0.0.1:8000/
 
-                Summary:
-
-                Link: http://www.aftenposten.no/nyheter/iriks/Krever-opprydding-i-Oslos-kamerajungel-8136177.html
-
-                Image: http://ap.mnocdn.no/external/drfront/images/1e7356c603d713a8f32c1fcdc70d706d.jpg
-
-
-----------------------
-Generate documentation
-----------------------
-
-Using make
-    .. code-block:: bash
-
-            # Navigate to news-scraper/docs
-            $ make html
 
 -------
 Licence
@@ -83,10 +60,8 @@ Licence
 
 Please see `LICENSE`_
 
-.. _aftenposten: http://www.aftenposten.no
-.. _LICENSE: https://github.com/Matmonsen/news-scraper/blob/master/LICENSE.rst
-.. _requirements: https://github.com/Matmonsen/news-scraper/blob/master/requirements.txt
-.. _Requests: http://python-requests.org
+.. _LICENSE: https://github.com/Matmonsen/django-boilerplate/blob/master/LICENSE.rst
+.. _requirements: https://github.com/Matmonsen/django-boilerplate/blob/master/requirements.txt
 .. _pip: http://www.pip-installer.org/en/latest/index.html
 
 
