@@ -58,8 +58,9 @@ def setup(project_name='', app_name='', superuser=False, git=False, documentatio
             print('... initilizing git')
             run('git init ../')
 
+        build(documentation=documentation)
+
         if superuser:
-            build(documentation=documentation)
             print('.. creating superuser')
             run('./manage.py createsuperuser')
         print('... done with setup. Enoy!')
