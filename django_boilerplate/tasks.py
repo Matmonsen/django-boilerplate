@@ -23,7 +23,7 @@ def setup(project_name='', app_name='',  superuser=False, git=False):
 
         print('... renaming project')
         os.rename("boilerplate", app_name)
-        os.rename(os.path.dirname(__file__), project_name)
+        os.rename(os.path.dirname(__file__), os.path.dirname(os.path.dirname(__file__)) + '/' + project_name)
 
         print('... adding project to installed apps')
         for line in fileinput.input(os.path.dirname(__file__) + '/base/settings/default.py', inplace=True):
