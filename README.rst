@@ -45,7 +45,7 @@ Using the boilerplate
     # Initialize setup
     # -s is optional. It creates a superuser.
     # -g for initialize new git repo
-    $ invoke setup -n "Project name"
+    $ invoke setup -p "project_name" -a "app_name"
 
     # Run server
     # port defaults to 8000 -p for override
